@@ -1,16 +1,226 @@
-<!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#20201e"><title>Wolę z miodem</title>
-<style>
-:root{--gold:#ffbf18;--ink:#20201e;--cream:#fff7e5;--muted:#62615d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit}.wrap{width:min(1180px,92%);margin:auto}header{background:var(--ink);color:white;position:sticky;top:0;z-index:5}.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{color:var(--gold);font-size:clamp(1.3rem,3vw,2rem);font-weight:800;text-decoration:none}.bee{font-size:1.7rem;margin-right:10px}nav{display:flex;gap:clamp(12px,3vw,30px);flex-wrap:wrap}nav a{text-decoration:none;font-weight:650}nav a:hover{color:var(--gold)}.announcement{background:var(--gold);text-align:center;padding:12px;font-weight:900;font-size:clamp(1rem,2.5vw,1.25rem)}.hero{min-height:460px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;padding:55px 4%;background:linear-gradient(110deg,#fffdf7,#fff0c9)}.hero-copy{padding-left:max(0px,calc((100vw - 1180px)/2))}h1{font-size:clamp(3rem,7vw,6rem);line-height:1.02;letter-spacing:-.06em;margin:0 0 18px}.lead{font-size:clamp(1.2rem,2.6vw,1.8rem);margin:0 0 14px}.intro{max-width:520px;color:#444}.btn{display:inline-block;margin-top:16px;background:var(--gold);color:#171715;padding:13px 24px;border-radius:13px;text-decoration:none;font-weight:800}.hero-art{min-height:320px;display:grid;place-items:center}.jar-scene{width:min(380px,100%);aspect-ratio:1;border-radius:48% 48% 22px 22px;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 30%,#fff9db 0 12%,#f8d775 35%,#d28a19 65%,#8e5012 100%);box-shadow:inset 0 0 35px #fff8d5,0 24px 45px #8e501233}.jar{width:56%;height:58%;border:7px solid #fff5ce;border-radius:18px 18px 38px 38px;background:linear-gradient(90deg,#a85b09aa,#ffc52add 25%,#ffdf6eee 55%,#d17a08cc);display:grid;place-items:center;text-align:center;position:relative}.jar:before{content:"";position:absolute;width:64%;height:18px;top:-24px;border:6px solid #fff5ce;border-radius:8px;background:#d99722}.jar-label{background:#fff5d9;padding:12px 8px;width:85%;border-radius:5px;font-weight:900;line-height:1.2}.jar-label small{display:block;font-size:.65em;letter-spacing:.12em;margin-top:5px}.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;padding:48px 0;text-align:center}.benefit-icon{color:#e9a900;font-size:2.5rem}.benefits h2{font-size:1.2rem;margin:10px 0 7px}.benefits p,.card p{color:var(--muted);margin:0}.about{background:var(--cream);padding:55px 0}.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}h2.section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:0;letter-spacing:-.04em}.products{padding:60px 0}.section-heading{text-align:center;margin-bottom:28px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{border:1px solid #eee4d0;border-radius:18px;overflow:hidden}.honey-art{min-height:145px;display:grid;place-items:center;font-size:4rem;background:linear-gradient(135deg,#fff4d3,#f8d879)}.card-content{padding:20px}.card h3{margin:0 0 7px}.clicker{background:linear-gradient(145deg,#fff6dc,#ffe7a1);padding:55px 0;text-align:center}.clicker p{max-width:640px;margin:12px auto;color:#5b4a29}.honey-click{display:inline-grid;place-items:center;border:0;background:#fffaf0;border-radius:28px;padding:18px 32px;margin:20px auto 12px;cursor:pointer;box-shadow:0 10px 0 #d69b1d,0 18px 35px #7d541d22}.honey-click:active{transform:translateY(6px);box-shadow:0 3px 0 #d69b1d}.big-jar{font-size:clamp(5rem,18vw,9rem);line-height:1.2}.click-label{display:block;font-weight:850}.click-count{font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:#7c4c00}.click-status{min-height:1.5em;font-size:.9rem}.contact{background:var(--ink);color:white;padding:55px 0}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.contact p{color:#dedbd4}.contact a:not(.btn){color:var(--gold)}footer{background:#151513;color:#c8c5bd;text-align:center;padding:18px;font-size:.9rem}@media(max-width:760px){.nav{padding:14px 0;align-items:flex-start;flex-direction:column}nav{gap:12px 20px;font-size:.95rem}.hero{grid-template-columns:1fr;padding:38px 5% 25px;gap:0}.hero-art{min-height:260px}.jar-scene{max-width:300px}.benefits{grid-template-columns:repeat(2,1fr);gap:25px 15px;padding:35px 0}.about-grid,.contact-grid{grid-template-columns:1fr;gap:20px}.cards{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style></head><body>
-<header><div class="wrap nav"><a class="brand" href="#glowna"><span class="bee">🐝</span>Wolę z miodem</a><nav aria-label="Menu"><a href="#glowna">Strona główna</a><a href="#onas">O nas</a><a href="#produkty">Produkty</a><a href="#kontakt">Kontakt</a></nav></div></header>
-<div class="announcement">💳 JUŻ TERAZ MOŻNA PŁACIĆ KARTĄ! 🍯</div>
-<main><section class="hero" id="glowna"><div class="hero-copy"><h1>Wolę z miodem</h1><p class="lead">Naturalny smak, który zawsze się sprawdza.</p><p class="intro">Zdrowy, pyszny, prawdziwy — miód to więcej niż tylko słodycz. To natura w najlepszej formie.</p><a class="btn" href="#produkty">Poznaj nasze miody →</a></div><div class="hero-art"><div class="jar-scene"><div class="jar"><div class="jar-label">WOLĘ<br>Z MIODEM<small>NATURALNA SŁODYCZ</small></div></div></div></div></section>
-<section class="wrap benefits"><article><div class="benefit-icon">🍃</div><h2>Naturalny wybór</h2><p>Prosty skład i smak inspirowany naturą.</p></article><article><div class="benefit-icon">⬡</div><h2>Różne smaki</h2><p>Odkrywaj miody o różnych aromatach.</p></article><article><div class="benefit-icon">♡</div><h2>Mała przyjemność</h2><p>Dodaj odrobinę słodyczy do codzienności.</p></article><article><div class="benefit-icon">🐝</div><h2>Blisko natury</h2><p>Doceniamy pracę pszczół i pszczelarzy.</p></article></section>
-<section class="about" id="onas"><div class="wrap about-grid"><h2 class="section-title">Dlaczego warto wybrać miód?</h2><p>Wierzymy, że prawdziwy miód to coś więcej niż produkt — to smak, tradycja i szacunek do natury. „Wolę z miodem” to miejsce dla wszystkich, którzy lubią proste przyjemności i złocistą słodycz.</p></div></section>
-<section class="wrap products" id="produkty"><div class="section-heading"><h2 class="section-title">Poznaj nasze smaki</h2><p>Wybierz swój ulubiony rodzaj miodu.</p></div><div class="cards"><article class="card"><div class="honey-art">🌼🍯</div><div class="card-content"><h3>Miód wielokwiatowy</h3><p>Łagodny, kwiatowy smak na co dzień.</p></div></article><article class="card"><div class="honey-art">🌾🍯</div><div class="card-content"><h3>Miód rzepakowy</h3><p>Delikatny smak i jasna, kremowa konsystencja.</p></div></article><article class="card"><div class="honey-art">🌳🍯</div><div class="card-content"><h3>Miód lipowy</h3><p>Wyrazisty aromat dla miłośników charakterystycznych smaków.</p></div></article></div></section>
-<section class="clicker" id="kliknij-miod"><div class="wrap"><h2 class="section-title">Kliknij słoik miodu!</h2><p>Każde kliknięcie dodaje punkt do licznika. Aby wynik był wspólny dla wszystkich odwiedzających, trzeba podłączyć bazę danych.</p><button class="honey-click" id="honeyButton" type="button" aria-label="Kliknij słoik, aby zwiększyć licznik"><span class="big-jar" aria-hidden="true">🍯</span><span class="click-label">Kliknij mnie!</span></button><div class="click-count" aria-live="polite">Kliknięcia: <span id="clickCount">0</span></div><p class="click-status" id="clickStatus">Tryb demonstracyjny — kliknięcia są widoczne tylko w tej karcie.</p></div></section>
-<section class="contact" id="kontakt"><div class="wrap contact-grid"><div><h2 class="section-title">Masz pytanie?</h2><p>Chętnie dowiemy się, jaki miód lubisz najbardziej.</p></div><div><p><strong>E-mail:</strong> <a href="mailto:kontakt@wolezmiodem.pl">kontakt@wolezmiodem.pl</a></p><p><strong>Uwaga:</strong> To przykładowy adres — podmień go na swój przed publikacją.</p><a class="btn" href="mailto:kontakt@wolezmiodem.pl">Napisz do nas</a></div></div></section></main>
-<footer>© <span id="year">2026</span> Wolę z miodem · Strona demonstracyjna</footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();let clicks=0;document.getElementById('honeyButton').addEventListener('click',()=>{clicks++;document.getElementById('clickCount').textContent=clicks.toLocaleString('pl-PL');document.getElementById('clickStatus').textContent='Kliknięcia są na razie lokalne — wspólny licznik wymaga serwera.'});</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolę z Miodem</title>
+    <!-- Biblioteka Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffecb3 100%);
+            color: #4a3b32;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #d97706;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        p.intro {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #614835;
+        }
+
+        .counter-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 350px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+        }
+
+        .counter-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #92400e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .counter-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #b45309;
+            margin: 10px 0;
+            transition: transform 0.1s ease;
+        }
+
+        .click-btn {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+            transition: all 0.2s ease;
+            outline: none;
+            user-select: none;
+        }
+
+        .click-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
+        }
+
+        .click-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #88684d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Wolę z Miodem 🍯</h1>
+        <p class="intro">Witaj na naszej stronie! Kliknij poniższy przycisk, aby wesprzeć nasz licznik wspólnych kliknięć. Każde kliknięcie zapisuje się na żywo dla wszystkich użytkowników!</p>
+
+        <div class="counter-box">
+            <div class="counter-title">Liczba kliknięć</div>
+            <div id="licznik" class="counter-value">...</div>
+            <button class="click-btn" id="clickBtn" onclick="zwiekszLicznik()">Kliknij mnie! 🐝</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; Wolę z Miodem - Wszystkie prawa zastrzeżone.
+    </footer>
+
+    <script>
+        // Dane dostępowe Supabase
+        const SUPABASE_URL = 'https://igbhqfwnsnymvnsmycvu.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnYmhxZnduc255bXZuc215Y3Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2OTc0OTUsImV4cCI6MjEwODI3MzQ5NX0.ydKm6iIt7OXUJ9wkKRKKtWJGD48WelbseZ6p10xYSFQ';
+
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // ID wiersza w tabeli Licznik / licznik
+        const ROW_ID = 1;
+
+        // Funkcja pomocnicza określająca właściwą nazwę tabeli
+        async function pobierzLicznik() {
+            // Najpierw próbujemy z dużej litery 'Licznik', jeśli nie przejdzie, próbujemy 'licznik'
+            let { data, error } = await _supabase
+                .from('Licznik')
+                .select('clicks')
+                .eq('id', ROW_ID)
+                .maybeSingle();
+
+            if (error || !data) {
+                const res = await _supabase
+                    .from('licznik')
+                    .select('clicks')
+                    .eq('id', ROW_ID)
+                    .maybeSingle();
+                data = res.data;
+            }
+
+            if (data) {
+                document.getElementById('licznik').innerText = data.clicks;
+            } else {
+                document.getElementById('licznik').innerText = 0;
+            }
+        }
+
+        async function zwiekszLicznik() {
+            const btn = document.getElementById('clickBtn');
+            btn.disabled = true;
+
+            // Sprawdzamy, która tabela istnieje ('Licznik' czy 'licznik')
+            let tableName = 'Licznik';
+            let { data, error } = await _supabase
+                .from(tableName)
+                .select('clicks')
+                .eq('id', ROW_ID)
+                .maybeSingle();
+
+            if (error || !data) {
+                tableName = 'licznik';
+                const res = await _supabase
+                    .from(tableName)
+                    .select('clicks')
+                    .eq('id', ROW_ID)
+                    .maybeSingle();
+                data = res.data;
+            }
+
+            const obecneClicks = data ? (data.clicks || 0) : 0;
+            const nowaWartosc = obecneClicks + 1;
+
+            const { error: updateError } = await _supabase
+                .from(tableName)
+                .update({ clicks: nowaWartosc })
+                .eq('id', ROW_ID);
+
+            if (!updateError) {
+                document.getElementById('licznik').innerText = nowaWartosc;
+            } else {
+                console.error('Błąd zapisu:', updateError);
+            }
+
+            btn.disabled = false;
+        }
+
+        // Subskrypcja na żywo (Realtime) - aby licznik aktualizował się od razu u każdego!
+        function wlaczenieRealtime() {
+            _supabase
+                .channel('public:licznik')
+                .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'Licznik' }, payload => {
+                    if (payload.new && payload.new.clicks !== undefined) {
+                        document.getElementById('licznik').innerText = payload.new.clicks;
+                    }
+                })
+                .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'licznik' }, payload => {
+                    if (payload.new && payload.new.clicks !== undefined) {
+                        document.getElementById('licznik').innerText = payload.new.clicks;
+                    }
+                })
+                .subscribe();
+        }
+
+        // Inicjalizacja po załadowaniu strony
+        pobierzLicznik();
+        wlaczenieRealtime();
+    </script>
+</body>
+</html>
