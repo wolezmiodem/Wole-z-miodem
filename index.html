@@ -1,129 +1,16 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#20201e">
-  <meta name="description" content="Wolę z miodem — odkryj naturalną słodycz i wyjątkowe smaki miodu.">
-  <title>Wolę z miodem</title>
-  <style>
-    :root { --gold:#ffbf18; --ink:#20201e; --cream:#fff7e5; --muted:#62615d; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--ink); font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.6; }
-    a { color:inherit; }
-    .wrap { width:min(1180px,92%); margin-inline:auto; }
-    header { background:var(--ink); color:white; position:sticky; top:0; z-index:10; }
-    .nav { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--gold); font-size:clamp(1.3rem,3vw,2rem); font-weight:800; letter-spacing:-.04em; }
-    .bee { font-size:2rem; }
-    nav { display:flex; gap:clamp(12px,3vw,34px); flex-wrap:wrap; }
-    nav a { text-decoration:none; font-weight:650; }
-    nav a:hover, nav a:focus { color:var(--gold); }
-    .hero { min-height:480px; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:32px; padding-block:60px; background:linear-gradient(110deg,#fffdf7,#fff0c9); overflow:hidden; }
-    .hero-copy { padding-left:max(4vw,calc((100vw - 1180px)/2)); }
-    h1 { font-size:clamp(3rem,7vw,6rem); line-height:1.02; letter-spacing:-.06em; margin:0 0 18px; }
-    .lead { font-size:clamp(1.2rem,2.6vw,1.8rem); margin:0 0 14px; }
-    .intro { max-width:520px; color:#444; }
-    .btn { display:inline-block; margin-top:16px; background:var(--gold); color:#171715; padding:13px 24px; border-radius:13px; text-decoration:none; font-weight:800; transition:transform .2s,background .2s; }
-    .btn:hover { transform:translateY(-2px); background:#ffd04d; }
-    .hero-art { min-height:340px; display:grid; place-items:center; padding:20px; }
-    .jar-scene { width:min(420px,100%); aspect-ratio:1/1; border-radius:48% 48% 22px 22px; display:grid; place-items:center; background:radial-gradient(ellipse at 50% 30%,#fff9db 0 12%,#f8d775 35%,#d28a19 65%,#8e5012 100%); box-shadow:inset 0 0 35px #fff8d5,0 24px 45px #8e501233; position:relative; }
-    .jar { width:56%; height:58%; border:7px solid #fff5ce; border-radius:18px 18px 38px 38px; background:linear-gradient(90deg,#a85b09aa,#ffc52add 25%,#ffdf6eee 55%,#d17a08cc); box-shadow:inset 12px 0 18px #fff5a9aa,0 15px 20px #78420b44; position:relative; display:grid; place-items:center; text-align:center; }
-    .jar:before { content:""; position:absolute; width:64%; height:18px; top:-24px; border:6px solid #fff5ce; border-radius:8px; background:#d99722; }
-    .jar-label { background:#fff5d9; padding:12px 8px; width:85%; border-radius:5px; font-weight:900; font-size:clamp(.75rem,2vw,1.1rem); line-height:1.2; box-shadow:0 3px 6px #75410c22; }
-    .jar-label small { display:block; font-size:.65em; letter-spacing:.12em; margin-top:5px; }
-    .dip { position:absolute; top:8%; right:13%; font-size:clamp(2rem,6vw,4rem); transform:rotate(25deg); }
-    .benefits { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; padding-block:52px; text-align:center; }
-    .benefit-icon { color:#e9a900; font-size:2.5rem; line-height:1.2; }
-    .benefits h2 { font-size:1.25rem; margin:12px 0 7px; }
-    .benefits p { color:var(--muted); margin:0; }
-    .about { background:var(--cream); padding:58px 0; }
-    .about-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:45px; align-items:center; }
-    h2.section-title { font-size:clamp(2rem,4vw,3.3rem); line-height:1.1; margin:0; letter-spacing:-.04em; }
-    .products { padding-block:62px; }
-    .section-heading { text-align:center; margin-bottom:28px; }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-    .card { border:1px solid #eee4d0; border-radius:18px; overflow:hidden; background:white; }
-    .honey-art { min-height:145px; display:grid; place-items:center; font-size:4rem; background:linear-gradient(135deg,#fff4d3,#f8d879); }
-    .card-content { padding:20px; }
-    .card h3 { margin:0 0 7px; }
-    .card p { color:var(--muted); margin:0; }
-    .contact { background:var(--ink); color:white; padding:55px 0; }
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; }
-    .contact p { color:#dedbd4; }
-    .contact a:not(.btn) { color:var(--gold); }
-    footer { background:#151513; color:#c8c5bd; text-align:center; padding:18px; font-size:.9rem; }
-    @media(max-width:760px) {
-      .nav { padding-block:14px; align-items:flex-start; flex-direction:column; }
-      nav { gap:12px 20px; font-size:.95rem; }
-      .hero { grid-template-columns:1fr; padding-block:42px 28px; gap:0; }
-      .hero-copy { padding:0 5%; }
-      .hero-art { min-height:270px; }
-      .jar-scene { max-width:310px; }
-      .benefits { grid-template-columns:repeat(2,1fr); gap:28px 18px; padding-block:38px; }
-      .about-grid,.contact-grid { grid-template-columns:1fr; gap:20px; }
-      .cards { grid-template-columns:1fr; }
-    }
-    @media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *{transition:none!important} }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#glowna"><span class="bee" aria-hidden="true">🐝</span><span>Wolę z miodem</span></a>
-      <nav aria-label="Menu główne">
-        <a href="#glowna">Strona główna</a><a href="#onas">O nas</a><a href="#produkty">Produkty</a><a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="glowna">
-      <div class="hero-copy">
-        <div class="wrap" style="width:100%;margin:0">
-          <h1>Wolę z miodem</h1>
-          <p class="lead">Naturalny smak, który zawsze się sprawdza.</p>
-          <p class="intro">Zdrowy, pyszny, prawdziwy — miód to więcej niż tylko słodycz. To natura w najlepszej formie.</p>
-          <a class="btn" href="#produkty">Poznaj nasze miody&nbsp; →</a>
-        </div>
-      </div>
-      <div class="hero-art" aria-label="Ilustracja słoika miodu">
-        <div class="jar-scene"><span class="dip" aria-hidden="true">🍯</span><div class="jar"><div class="jar-label">WOLĘ<br>Z MIODEM<small>NATURALNA SŁODYCZ</small></div></div></div>
-      </div>
-    </section>
-
-    <section class="wrap benefits" aria-label="Nasze zalety">
-      <article><div class="benefit-icon" aria-hidden="true">🍃</div><h2>Naturalny wybór</h2><p>Prosty skład i smak inspirowany naturą.</p></article>
-      <article><div class="benefit-icon" aria-hidden="true">⬡</div><h2>Różne smaki</h2><p>Odkrywaj miody o różnych aromatach.</p></article>
-      <article><div class="benefit-icon" aria-hidden="true">♡</div><h2>Mała przyjemność</h2><p>Dodaj odrobinę słodyczy do codzienności.</p></article>
-      <article><div class="benefit-icon" aria-hidden="true">🐝</div><h2>Blisko natury</h2><p>Doceniamy pracę pszczół i pszczelarzy.</p></article>
-    </section>
-
-    <section class="about" id="onas">
-      <div class="wrap about-grid">
-        <h2 class="section-title">Dlaczego warto wybrać miód?</h2>
-        <p>Wierzymy, że prawdziwy miód to coś więcej niż produkt — to smak, tradycja i szacunek do natury. „Wolę z miodem” to miejsce dla wszystkich, którzy lubią proste przyjemności i złocistą słodycz.</p>
-      </div>
-    </section>
-
-    <section class="wrap products" id="produkty">
-      <div class="section-heading"><h2 class="section-title">Poznaj nasze smaki</h2><p>Wybierz swój ulubiony rodzaj miodu.</p></div>
-      <div class="cards">
-        <article class="card"><div class="honey-art" aria-hidden="true">🌼🍯</div><div class="card-content"><h3>Miód wielokwiatowy</h3><p>Łagodny, kwiatowy smak na co dzień.</p></div></article>
-        <article class="card"><div class="honey-art" aria-hidden="true">🌾🍯</div><div class="card-content"><h3>Miód rzepakowy</h3><p>Delikatny smak i jasna, kremowa konsystencja.</p></div></article>
-        <article class="card"><div class="honey-art" aria-hidden="true">🌳🍯</div><div class="card-content"><h3>Miód lipowy</h3><p>Wyrazisty aromat dla miłośników charakterystycznych smaków.</p></div></article>
-      </div>
-    </section>
-
-    <section class="contact" id="kontakt">
-      <div class="wrap contact-grid">
-        <div><h2 class="section-title">Masz pytanie?</h2><p>Chętnie dowiemy się, jaki miód lubisz najbardziej.</p></div>
-        <div><p><strong>E-mail:</strong> <a href="mailto:kontakt@wolezmiodem.pl">kontakt@wolezmiodem.pl</a></p><p><strong>Uwaga:</strong> To przykładowy adres — podmień go na swój przed publikacją.</p><a class="btn" href="mailto:kontakt@wolezmiodem.pl">Napisz do nas</a></div>
-      </div>
-    </section>
-  </main>
-  <footer>© <span id="year">2026</span> Wolę z miodem · Strona demonstracyjna</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#20201e"><title>Wolę z miodem</title>
+<style>
+:root{--gold:#ffbf18;--ink:#20201e;--cream:#fff7e5;--muted:#62615d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit}.wrap{width:min(1180px,92%);margin:auto}header{background:var(--ink);color:white;position:sticky;top:0;z-index:5}.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{color:var(--gold);font-size:clamp(1.3rem,3vw,2rem);font-weight:800;text-decoration:none}.bee{font-size:1.7rem;margin-right:10px}nav{display:flex;gap:clamp(12px,3vw,30px);flex-wrap:wrap}nav a{text-decoration:none;font-weight:650}nav a:hover{color:var(--gold)}.announcement{background:var(--gold);text-align:center;padding:12px;font-weight:900;font-size:clamp(1rem,2.5vw,1.25rem)}.hero{min-height:460px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;padding:55px 4%;background:linear-gradient(110deg,#fffdf7,#fff0c9)}.hero-copy{padding-left:max(0px,calc((100vw - 1180px)/2))}h1{font-size:clamp(3rem,7vw,6rem);line-height:1.02;letter-spacing:-.06em;margin:0 0 18px}.lead{font-size:clamp(1.2rem,2.6vw,1.8rem);margin:0 0 14px}.intro{max-width:520px;color:#444}.btn{display:inline-block;margin-top:16px;background:var(--gold);color:#171715;padding:13px 24px;border-radius:13px;text-decoration:none;font-weight:800}.hero-art{min-height:320px;display:grid;place-items:center}.jar-scene{width:min(380px,100%);aspect-ratio:1;border-radius:48% 48% 22px 22px;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 30%,#fff9db 0 12%,#f8d775 35%,#d28a19 65%,#8e5012 100%);box-shadow:inset 0 0 35px #fff8d5,0 24px 45px #8e501233}.jar{width:56%;height:58%;border:7px solid #fff5ce;border-radius:18px 18px 38px 38px;background:linear-gradient(90deg,#a85b09aa,#ffc52add 25%,#ffdf6eee 55%,#d17a08cc);display:grid;place-items:center;text-align:center;position:relative}.jar:before{content:"";position:absolute;width:64%;height:18px;top:-24px;border:6px solid #fff5ce;border-radius:8px;background:#d99722}.jar-label{background:#fff5d9;padding:12px 8px;width:85%;border-radius:5px;font-weight:900;line-height:1.2}.jar-label small{display:block;font-size:.65em;letter-spacing:.12em;margin-top:5px}.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;padding:48px 0;text-align:center}.benefit-icon{color:#e9a900;font-size:2.5rem}.benefits h2{font-size:1.2rem;margin:10px 0 7px}.benefits p,.card p{color:var(--muted);margin:0}.about{background:var(--cream);padding:55px 0}.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}h2.section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:0;letter-spacing:-.04em}.products{padding:60px 0}.section-heading{text-align:center;margin-bottom:28px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{border:1px solid #eee4d0;border-radius:18px;overflow:hidden}.honey-art{min-height:145px;display:grid;place-items:center;font-size:4rem;background:linear-gradient(135deg,#fff4d3,#f8d879)}.card-content{padding:20px}.card h3{margin:0 0 7px}.clicker{background:linear-gradient(145deg,#fff6dc,#ffe7a1);padding:55px 0;text-align:center}.clicker p{max-width:640px;margin:12px auto;color:#5b4a29}.honey-click{display:inline-grid;place-items:center;border:0;background:#fffaf0;border-radius:28px;padding:18px 32px;margin:20px auto 12px;cursor:pointer;box-shadow:0 10px 0 #d69b1d,0 18px 35px #7d541d22}.honey-click:active{transform:translateY(6px);box-shadow:0 3px 0 #d69b1d}.big-jar{font-size:clamp(5rem,18vw,9rem);line-height:1.2}.click-label{display:block;font-weight:850}.click-count{font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:#7c4c00}.click-status{min-height:1.5em;font-size:.9rem}.contact{background:var(--ink);color:white;padding:55px 0}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.contact p{color:#dedbd4}.contact a:not(.btn){color:var(--gold)}footer{background:#151513;color:#c8c5bd;text-align:center;padding:18px;font-size:.9rem}@media(max-width:760px){.nav{padding:14px 0;align-items:flex-start;flex-direction:column}nav{gap:12px 20px;font-size:.95rem}.hero{grid-template-columns:1fr;padding:38px 5% 25px;gap:0}.hero-art{min-height:260px}.jar-scene{max-width:300px}.benefits{grid-template-columns:repeat(2,1fr);gap:25px 15px;padding:35px 0}.about-grid,.contact-grid{grid-template-columns:1fr;gap:20px}.cards{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header><div class="wrap nav"><a class="brand" href="#glowna"><span class="bee">🐝</span>Wolę z miodem</a><nav aria-label="Menu"><a href="#glowna">Strona główna</a><a href="#onas">O nas</a><a href="#produkty">Produkty</a><a href="#kontakt">Kontakt</a></nav></div></header>
+<div class="announcement">💳 JUŻ TERAZ MOŻNA PŁACIĆ KARTĄ! 🍯</div>
+<main><section class="hero" id="glowna"><div class="hero-copy"><h1>Wolę z miodem</h1><p class="lead">Naturalny smak, który zawsze się sprawdza.</p><p class="intro">Zdrowy, pyszny, prawdziwy — miód to więcej niż tylko słodycz. To natura w najlepszej formie.</p><a class="btn" href="#produkty">Poznaj nasze miody →</a></div><div class="hero-art"><div class="jar-scene"><div class="jar"><div class="jar-label">WOLĘ<br>Z MIODEM<small>NATURALNA SŁODYCZ</small></div></div></div></div></section>
+<section class="wrap benefits"><article><div class="benefit-icon">🍃</div><h2>Naturalny wybór</h2><p>Prosty skład i smak inspirowany naturą.</p></article><article><div class="benefit-icon">⬡</div><h2>Różne smaki</h2><p>Odkrywaj miody o różnych aromatach.</p></article><article><div class="benefit-icon">♡</div><h2>Mała przyjemność</h2><p>Dodaj odrobinę słodyczy do codzienności.</p></article><article><div class="benefit-icon">🐝</div><h2>Blisko natury</h2><p>Doceniamy pracę pszczół i pszczelarzy.</p></article></section>
+<section class="about" id="onas"><div class="wrap about-grid"><h2 class="section-title">Dlaczego warto wybrać miód?</h2><p>Wierzymy, że prawdziwy miód to coś więcej niż produkt — to smak, tradycja i szacunek do natury. „Wolę z miodem” to miejsce dla wszystkich, którzy lubią proste przyjemności i złocistą słodycz.</p></div></section>
+<section class="wrap products" id="produkty"><div class="section-heading"><h2 class="section-title">Poznaj nasze smaki</h2><p>Wybierz swój ulubiony rodzaj miodu.</p></div><div class="cards"><article class="card"><div class="honey-art">🌼🍯</div><div class="card-content"><h3>Miód wielokwiatowy</h3><p>Łagodny, kwiatowy smak na co dzień.</p></div></article><article class="card"><div class="honey-art">🌾🍯</div><div class="card-content"><h3>Miód rzepakowy</h3><p>Delikatny smak i jasna, kremowa konsystencja.</p></div></article><article class="card"><div class="honey-art">🌳🍯</div><div class="card-content"><h3>Miód lipowy</h3><p>Wyrazisty aromat dla miłośników charakterystycznych smaków.</p></div></article></div></section>
+<section class="clicker" id="kliknij-miod"><div class="wrap"><h2 class="section-title">Kliknij słoik miodu!</h2><p>Każde kliknięcie dodaje punkt do licznika. Aby wynik był wspólny dla wszystkich odwiedzających, trzeba podłączyć bazę danych.</p><button class="honey-click" id="honeyButton" type="button" aria-label="Kliknij słoik, aby zwiększyć licznik"><span class="big-jar" aria-hidden="true">🍯</span><span class="click-label">Kliknij mnie!</span></button><div class="click-count" aria-live="polite">Kliknięcia: <span id="clickCount">0</span></div><p class="click-status" id="clickStatus">Tryb demonstracyjny — kliknięcia są widoczne tylko w tej karcie.</p></div></section>
+<section class="contact" id="kontakt"><div class="wrap contact-grid"><div><h2 class="section-title">Masz pytanie?</h2><p>Chętnie dowiemy się, jaki miód lubisz najbardziej.</p></div><div><p><strong>E-mail:</strong> <a href="mailto:kontakt@wolezmiodem.pl">kontakt@wolezmiodem.pl</a></p><p><strong>Uwaga:</strong> To przykładowy adres — podmień go na swój przed publikacją.</p><a class="btn" href="mailto:kontakt@wolezmiodem.pl">Napisz do nas</a></div></div></section></main>
+<footer>© <span id="year">2026</span> Wolę z miodem · Strona demonstracyjna</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();let clicks=0;document.getElementById('honeyButton').addEventListener('click',()=>{clicks++;document.getElementById('clickCount').textContent=clicks.toLocaleString('pl-PL');document.getElementById('clickStatus').textContent='Kliknięcia są na razie lokalne — wspólny licznik wymaga serwera.'});</script>
+</body></html>
